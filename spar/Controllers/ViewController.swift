@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(StoriesTableViewCell.self, forCellReuseIdentifier: StoriesTableViewCell.identifier)
         tableView.register(PromoTableViewCell.self, forCellReuseIdentifier: PromoTableViewCell.identifier)
+        tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -85,6 +86,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
              cell = tableView.dequeueReusableCell(withIdentifier: StoriesTableViewCell.identifier, for: indexPath) as! StoriesTableViewCell
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: PromoTableViewCell.identifier, for: indexPath) as! PromoTableViewCell
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.identifier, for: indexPath)
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         }
