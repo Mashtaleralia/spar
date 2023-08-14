@@ -52,7 +52,8 @@ class PromoTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: contentView.frame.width - 90, height: contentView.frame.height)
+        print("promo height: \(contentView.frame.height)")
+       return  CGSize(width: contentView.frame.width - 30, height: contentView.frame.height)
     }
     
 }

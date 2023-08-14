@@ -27,7 +27,10 @@ class ViewController: UIViewController {
         tableView.register(StoriesTableViewCell.self, forCellReuseIdentifier: StoriesTableViewCell.identifier)
         tableView.register(PromoTableViewCell.self, forCellReuseIdentifier: PromoTableViewCell.identifier)
         tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
+        tableView.register(RecommendedTableViewCell.self, forCellReuseIdentifier: RecommendedTableViewCell.identifier)
+        tableView.register(SweetsTableViewCell.self, forCellReuseIdentifier: SweetsTableViewCell.identifier)
         tableView.separatorStyle = .none
+     
         return tableView
     }()
     
@@ -87,7 +90,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: PromoTableViewCell.identifier, for: indexPath) as! PromoTableViewCell
         case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.identifier, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.identifier, for: indexPath) as!InfoTableViewCell
+        case 3:
+            cell = tableView.dequeueReusableCell(withIdentifier: RecommendedTableViewCell.identifier, for: indexPath) as! RecommendedTableViewCell
+        case 4:
+            cell = tableView.dequeueReusableCell(withIdentifier: SweetsTableViewCell.identifier, for: indexPath) as! SweetsTableViewCell
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         }
@@ -105,7 +112,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        150
+        if indexPath.section == 3 || indexPath.section == 4 {
+            return 200
+        }
+        else if indexPath.section == 0 {
+            return 150
+        }
+        return 175
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 3 {
+            return "Рекомендуем"
+        } else if section == 4 {
+            return "Сладкое настроение"
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        header.textLabel?.textColor = .black
     }
     
     

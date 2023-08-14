@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845F90372A8A390D0032DE4C /* SweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */; };
 		84986A1A2A86295600CC351A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A192A86295600CC351A /* AppDelegate.swift */; };
 		84986A1C2A86295600CC351A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A1B2A86295600CC351A /* SceneDelegate.swift */; };
 		84986A1E2A86295600CC351A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A1D2A86295600CC351A /* ViewController.swift */; };
@@ -19,9 +20,12 @@
 		84986A3A2A87AA0500CC351A /* PromoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A392A87AA0500CC351A /* PromoCollectionViewCell.swift */; };
 		84986A3C2A88DD0E00CC351A /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A3B2A88DD0E00CC351A /* InfoCollectionViewCell.swift */; };
 		84986A3E2A88DD4F00CC351A /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A3D2A88DD4F00CC351A /* InfoTableViewCell.swift */; };
+		84986A402A88EE5000CC351A /* RecommendedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A3F2A88EE4F00CC351A /* RecommendedTableViewCell.swift */; };
+		84986A422A88EE6900CC351A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A412A88EE6900CC351A /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetsTableViewCell.swift; sourceTree = "<group>"; };
 		84986A162A86295600CC351A /* spar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84986A192A86295600CC351A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84986A1B2A86295600CC351A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		84986A392A87AA0500CC351A /* PromoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCollectionViewCell.swift; sourceTree = "<group>"; };
 		84986A3B2A88DD0E00CC351A /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		84986A3D2A88DD4F00CC351A /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		84986A3F2A88EE4F00CC351A /* RecommendedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTableViewCell.swift; sourceTree = "<group>"; };
+		84986A412A88EE6900CC351A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				84986A392A87AA0500CC351A /* PromoCollectionViewCell.swift */,
 				84986A3B2A88DD0E00CC351A /* InfoCollectionViewCell.swift */,
 				84986A3D2A88DD4F00CC351A /* InfoTableViewCell.swift */,
+				84986A3F2A88EE4F00CC351A /* RecommendedTableViewCell.swift */,
+				84986A412A88EE6900CC351A /* ProductCollectionViewCell.swift */,
+				845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,11 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84986A422A88EE6900CC351A /* ProductCollectionViewCell.swift in Sources */,
 				84986A382A87A85700CC351A /* PromoTableViewCell.swift in Sources */,
 				84986A3E2A88DD4F00CC351A /* InfoTableViewCell.swift in Sources */,
 				84986A1E2A86295600CC351A /* ViewController.swift in Sources */,
 				84986A322A863D6200CC351A /* TabBarController.swift in Sources */,
+				84986A402A88EE5000CC351A /* RecommendedTableViewCell.swift in Sources */,
 				84986A1A2A86295600CC351A /* AppDelegate.swift in Sources */,
+				845F90372A8A390D0032DE4C /* SweetsTableViewCell.swift in Sources */,
 				84986A3A2A87AA0500CC351A /* PromoCollectionViewCell.swift in Sources */,
 				84986A342A86706800CC351A /* StoriesCollectionViewCell.swift in Sources */,
 				84986A3C2A88DD0E00CC351A /* InfoCollectionViewCell.swift in Sources */,

@@ -60,6 +60,7 @@ class InfoTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         let numberOfItems: CGFloat = 3
         let width = (contentView.frame.width - (numberOfItems - 1)*lineSpacing - insets.left*2)/numberOfItems
         let height = width*1.25
+        print("info height: \(height)")
         return CGSize(width: width, height: height)
     }
     
