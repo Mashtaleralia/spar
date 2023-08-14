@@ -1,28 +1,16 @@
 //
-//  RecommendedCollectionViewCell.swift
+//  DiscountedProductCollectionViewCell.swift
 //  spar
 //
-//  Created by Admin on 13.08.2023.
+//  Created by Admin on 14.08.2023.
 //
 
 import UIKit
 
-struct ProductModel {
-    var price: Float
-    var dimension: String
-    var image: String
-    var dispalyDimension: String {
-        "₽/" + dimension
-    }
-    var isDiscounted: Bool = false
-    var discount: Int? = nil
-}
+class DiscountedProductCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "DiscountedProductCollectionViewCell"
 
-class ProductCollectionViewCell: UICollectionViewCell {
-    
-    static let identifier = "ProductCollectionViewCell"
-    
-    private var isDiscounted = false
     
     private let toCartButton: UIButton = {
         let button = UIButton()
@@ -66,7 +54,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         label.textColor = .red
         label.text = "35%"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.isHidden = true
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
        label.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
@@ -81,12 +68,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(productImageView)
         contentView.addSubview(priceLabel)
         contentView.addSubview(dimensionLabel)
-
+        contentView.addSubview(discountLabel)
+        contentView.addSubview(previousPriceLabel)
         //contentView.clipsToBounds = false
         backgroundColor = .white
-      
         addConstraints()
         //configureDiscount()
+       
+        
     }
     
     private let previousPriceLabel: UILabel = {
@@ -96,7 +85,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
         label.attributedText = attributeString
         label.font = .systemFont(ofSize: 14)
-        label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -109,8 +97,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
   
         
         //priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
-    
+        priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25).isActive = true
+        previousPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        previousPriceLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor).isActive = true
        
         priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         priceLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
@@ -121,39 +110,32 @@ class ProductCollectionViewCell: UICollectionViewCell {
         toCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         toCartButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         toCartButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-    
+        discountLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        discountLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        discountLabel.centerXAnchor.constraint(equalTo: toCartButton.centerXAnchor).isActive = true
+        discountLabel.bottomAnchor.constraint(equalTo: toCartButton.topAnchor, constant:-5).isActive = true
     }
     
-    private func configureDiscount() {
-        discountLabel.isHidden = false
-        previousPriceLabel.isHidden = false
-        setNeedsLayout()
-//        let priceConstraint = priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
-        priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25).isActive = true
-        previousPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        previousPriceLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor).isActive = true
-        //toCartButton.centerYAnchor.constraint(equalTo: previousPriceLabel.centerYAnchor).isActive = true
-        layoutIfNeeded()
-    }
+
     
     public func configure(with model: ProductModel) {
         productImageView.image = UIImage(named: model.image)
         priceLabel.text = String(model.price)
         dimensionLabel.text = model.dispalyDimension
-      
+     
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         priceLabel.text = nil
         productImageView.image = nil
-   
         dimensionLabel.text = nil
+
+   
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
 }

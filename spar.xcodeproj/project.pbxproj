@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		845F90372A8A390D0032DE4C /* SweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */; };
+		845F90392A8A80480032DE4C /* DiscountedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F90382A8A80480032DE4C /* DiscountedProductCollectionViewCell.swift */; };
 		84986A1A2A86295600CC351A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A192A86295600CC351A /* AppDelegate.swift */; };
 		84986A1C2A86295600CC351A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A1B2A86295600CC351A /* SceneDelegate.swift */; };
 		84986A1E2A86295600CC351A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84986A1D2A86295600CC351A /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetsTableViewCell.swift; sourceTree = "<group>"; };
+		845F90382A8A80480032DE4C /* DiscountedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		84986A162A86295600CC351A /* spar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84986A192A86295600CC351A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84986A1B2A86295600CC351A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				84986A3F2A88EE4F00CC351A /* RecommendedTableViewCell.swift */,
 				84986A412A88EE6900CC351A /* ProductCollectionViewCell.swift */,
 				845F90362A8A390D0032DE4C /* SweetsTableViewCell.swift */,
+				845F90382A8A80480032DE4C /* DiscountedProductCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				84986A382A87A85700CC351A /* PromoTableViewCell.swift in Sources */,
 				84986A3E2A88DD4F00CC351A /* InfoTableViewCell.swift in Sources */,
 				84986A1E2A86295600CC351A /* ViewController.swift in Sources */,
+				845F90392A8A80480032DE4C /* DiscountedProductCollectionViewCell.swift in Sources */,
 				84986A322A863D6200CC351A /* TabBarController.swift in Sources */,
 				84986A402A88EE5000CC351A /* RecommendedTableViewCell.swift in Sources */,
 				84986A1A2A86295600CC351A /* AppDelegate.swift in Sources */,

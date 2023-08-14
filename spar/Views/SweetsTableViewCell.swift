@@ -13,7 +13,7 @@ class SweetsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     static let identifier = "SweetsTableViewCell"
     
     
-    private let productData = [ProductModel(price: 109.90, dimension: "шт", image: "caramel"), ProductModel(price: 75.90, dimension: "шт", image: "choco"), ProductModel(price: 43.90, dimension: "шт", image: "pistachio"), ProductModel(price: 74.90, dimension: "шт", image: "sorbet_1"), ProductModel(price: 279.90, dimension: "шт", image: "mallows"), ProductModel(price: 109.90, dimension: "шт", image: "sorbet_2"), ProductModel(price: 109.90, dimension: "шт", image: "chernosliv"), ProductModel(price: 129.90, dimension: "шт", image: "jellopy_fruit"), ProductModel(price: 89.90, dimension: "шт", image: "jellopy_cola"), ProductModel(price: 119.90, dimension: "шт", image: "jellopy_worms")]
+    private let productData = [ProductModel(price: 109.90, dimension: "шт", image: "caramel", isDiscounted: true),  ProductModel(price: 75.90, dimension: "шт", image: "choco"), ProductModel(price: 43.90, dimension: "шт", image: "pistachio"), ProductModel(price: 74.90, dimension: "шт", image: "sorbet_1"), ProductModel(price: 279.90, dimension: "шт", image: "mallows"), ProductModel(price: 109.90, dimension: "шт", image: "sorbet_2", isDiscounted: true), ProductModel(price: 109.90, dimension: "шт", image: "chernosliv"), ProductModel(price: 129.90, dimension: "шт", image: "jellopy_fruit"), ProductModel(price: 89.90, dimension: "шт", image: "jellopy_cola"), ProductModel(price: 119.90, dimension: "шт", image: "jellopy_worms", isDiscounted: true)] 
     
     private let insets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     private let minimumLineSpacing: CGFloat = 20.0
@@ -23,6 +23,7 @@ class SweetsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
+        collectionView.register(DiscountedProductCollectionViewCell.self, forCellWithReuseIdentifier: DiscountedProductCollectionViewCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
@@ -48,15 +49,30 @@ class SweetsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
-        cell.configure(with: productData[indexPath.row])
+        let data = productData[indexPath.row]
+        if data.isDiscounted {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscountedProductCollectionViewCell.identifier, for: indexPath) as! DiscountedProductCollectionViewCell
+            cell.configure(with: data)
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.layer.shadowRadius = 5.0
+            cell.layer.cornerRadius = 15
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
+            cell.configure(with: data)
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.layer.shadowRadius = 5.0
+            cell.layer.cornerRadius = 15
+            return cell
+        }
+        
        
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.2
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.shadowRadius = 5.0
-        cell.layer.cornerRadius = 15
-        return cell
+       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

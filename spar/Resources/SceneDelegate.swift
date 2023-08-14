@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = TabBarController()
         UIBarButtonItem.appearance().tintColor = .systemGreen
         UITabBar.appearance().tintColor = .systemGreen
+        UITabBar.appearance().backgroundColor = .white
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window
