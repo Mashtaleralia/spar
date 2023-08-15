@@ -69,7 +69,6 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(dimensionLabel)
         contentView.addSubview(discountLabel)
         contentView.addSubview(previousPriceLabel)
-        contentView.addSubview(discountTagView)
         contentView.clipsToBounds = true
         backgroundColor = .white
         addConstraints()
