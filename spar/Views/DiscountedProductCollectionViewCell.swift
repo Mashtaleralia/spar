@@ -52,7 +52,7 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .bold)
         label.textColor = .red
-        label.text = "35%"
+        //label.text = "35%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
@@ -81,7 +81,7 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
     private let previousPriceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "99.90")
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString()
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
         label.attributedText = attributeString
         label.font = .systemFont(ofSize: 14)
@@ -119,10 +119,19 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
 
     
     public func configure(with model: ProductModel) {
+        guard let discount = model.discount else {
+            return
+        }
         productImageView.image = UIImage(named: model.image)
-        priceLabel.text = String(model.price)
+        
+        priceLabel.text = model.discountedPrice
         dimensionLabel.text = model.dispalyDimension
-     
+       
+        discountLabel.text = String(discount) + "%"
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: String(model.price))
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+        previousPriceLabel.attributedText = attributeString
+        
     }
     
     override func prepareForReuse() {
