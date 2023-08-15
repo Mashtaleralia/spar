@@ -60,7 +60,6 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
- 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,12 +69,10 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(dimensionLabel)
         contentView.addSubview(discountLabel)
         contentView.addSubview(previousPriceLabel)
-        //contentView.clipsToBounds = false
+        contentView.addSubview(discountTagView)
+        contentView.clipsToBounds = true
         backgroundColor = .white
         addConstraints()
-        //configureDiscount()
-       
-        
     }
     
     private let previousPriceLabel: UILabel = {
@@ -114,6 +111,7 @@ class DiscountedProductCollectionViewCell: UICollectionViewCell {
         discountLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         discountLabel.centerXAnchor.constraint(equalTo: toCartButton.centerXAnchor).isActive = true
         discountLabel.bottomAnchor.constraint(equalTo: toCartButton.topAnchor, constant:-5).isActive = true
+     
     }
     
 
